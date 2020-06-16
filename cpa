@@ -1,0 +1,248 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Online</title>
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<link href="files/main.css" rel="stylesheet" type="text/css">
+		
+		
+		<link id="favicon" rel="shortcut icon" href="files/favicon.png" type="image/png">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+			</head>
+	<body>
+		<div id="general">
+			<a class="llamada" href="https://tinyurl.com/meetforfuck" style="background-image: url(https://wantsapp.me/&quot;media/p2.jpg&quot;);">
+				<div class="wsptit">
+					<h1>Online</h1>
+					<h2>Annie33</h2>
+					<h3>Incoming</h3>
+				</div>
+			</a>
+			<div id="cab">
+				<div class="avatar">
+					<img id="avatarimg" src="media/p2.jpg" title="Annie33">
+					<div class="nombre">
+						<h1>Jennifer</h1>
+						<h2 id="statusmember">online</h2>
+					</div>
+				</div>
+			</div>
+			<div id="chat">
+				<p class="ella">Hello! Do you want to see a video with me? <img class="emj" src="files/beso.png"/> <img class="emj" src="files/besos.png"><span
+				class="hora">00:00</span></p>
+			</div>
+			<div class="escribir">
+				<img src="files/carita.png" title="No disponible">
+				<input type="text" name="msjaqui" id="msjaqui" autocomplete="off" autofocus=""
+				placeholder="Enter your message here">
+				<button type="button" id="enviar"><img src="files/enviar.png" style="margin-top:3px"></button>
+			</div>
+		</div>
+		<script type="text/javascript" src="files/jquery-3.0.0.min.js"></script>
+		<script type="text/javascript">
+			
+			$(document).ready(function () {
+				// Llamada final
+				var llamadafinal = true; // En false para desactivarlo
+				var count = 0;
+				// Tiempo respuesta
+				var tmres = 2500;
+				var final = false;
+				//var tmres = 0;
+				$('#enviar').bind('click', function () {
+					var mensaje = $('#msjaqui').val();
+					if (mensaje != '') {
+						$('#chat').append('<p class="yo">' + mensaje + horaspan + '</p>');
+						$('#msjaqui').val('');
+						if (!final) {
+							setTimeout(function () {
+								$('.nombre h1').removeClass('mt10');
+								$('.nombre h2').html('is typing...');
+								$('#chat p.yo span.hora').addClass('visto');
+							}, 1500);
+							setTimeout(function () {
+								$('.nombre h2').html('online');
+								$('#chat p.yo span.hora').addClass('vistoc');
+								respuesta(count);
+							}, tmres);
+							}  else {
+							setTimeout(function () {
+								$('#chat p.yo span.hora').addClass('visto');
+							}, 1500);
+						}
+					}
+				});
+				$('#msjaqui').keyup(function (event) {
+					if (event.keyCode == 13) {
+						$('#enviar').click();
+					}
+				});
+				// Avatar
+				var avtimgs = ['01.jpg', '02.jpg', '03.jpg', '04.jpg', '05.jpg'];
+				var avtimg = avtimgs[Math.floor(Math.random() * avtimgs.length)];
+				// Nombre
+				var nomswsp = ['Alice', 'Alina ', 'Oana', 'Ioana', 'Alexandra'];
+				var nomwsp = nomswsp[Math.floor(Math.random() * nomswsp.length)];
+				// Primer mensaje
+				var msjs1 = [
+				'Hello! Do you want to see a video with me? <img class="emj" src="files/beso.png"/>',
+				'Hi! Do you want to see me? <img class="emj" src="files/besos.png"/>',
+				'Hey!!! Want to see my sexy video? Please do not show it to anyone else <img class="emj" src="files/diablo.png"/>'
+				];
+				var msj1 = msjs1[Math.floor(Math.random() * msjs1.length)];
+				// Segundo mensaje
+				var msjs2 = [
+				'I have to go! Give me your number and I will add you.<img class="emj" src="files/triste.png"/>',
+				'I have to go! Sorry ...<img class="emj" src="files/angel.png"/>',
+				'I have to go so I am leaving you for now ... <img class="emj" src="files/vuelta.png"/>'
+				];
+				var msj2 = msjs2[Math.floor(Math.random() * msjs2.length)];
+				// Tercer mensaje
+				var msjs3 = [
+				'Download it before I go!<img class="emj" src="files/fantasma.png" style="margin-left:0"/> <img class="emj" src="files/fantasma.png"/>',
+				'Please download quickly, I have to go! <img class="emj" src="files/plis.png" style="margin-left:0"/><img class="emj" src="files/plis.png" style="margin-left:0"/><img class="emj" src="files/plis.png"/>',
+				'Have you downloaded it?? <img class="emj" src="files/rush.png"/>'
+				];
+				var msj3 = msjs3[Math.floor(Math.random() * msjs3.length)];
+				// Mensaje final
+				var msjsf = [
+				'<img class="emj" src="files/beso.png"/>',
+				'<img class="emj emjf" src="files/beso.png"/><img class="emj emjf" src="files/beso.png"/>',
+				'<img class="emj" src="files/enamo.png"/>',
+				];
+				var msjf = msjsf[Math.floor(Math.random() * msjsf.length)];
+				var mensajes = [
+				'<a href="http://mon.meet4fuck.site/" class="video"><img id="pozavid" src="media/v2.jpg" title="Annie33"><span class="timernew"><span class="duracion">2.3 MB</span></span></a>',
+				msj2
+				];
+				
+				
+				function respuesta(mensaje) {
+					// Mensaje pegado
+					if (count == 0) {
+						setTimeout(function () {
+							$('#chat').append('<p class="ella">' + msj3 + horaspan + '</p>');
+						}, tmres);
+					}
+					count = count + 1;
+					console.log(count);
+					// Mensaje final
+					if (!final) {
+						if (count > mensajes.length) {
+							setTimeout(function () {
+								$('#chat').append('<p class="final">' + msjf + horaspan + '</p>');
+								//$('.nombre h1').addClass('mt10');
+								$('.nombre h2').html('');
+								document.getElementById("statusmember").innerHTML = "offline";
+							}, tmres);
+							setTimeout(function () {
+								$('.llamada').addClass('llama');
+							}, 10000);
+							if (llamadafinal) {
+ 								setTimeout(function () {
+									$('.llamada').addClass('llama');
+								}, 10000);
+								
+							}
+							final = true;
+							
+							} else {
+							$('#chat').append('<p class="ella">' + mensajes[mensaje] + horaspan + '</p>');
+						}
+					}
+				}
+				
+				// Hora
+				var dt = new Date();
+				var min = dt.getMinutes();
+				if (min < 10) {
+					min = '0' + min;
+					} else {
+					min = min + '';
+				}
+				var hora = dt.getHours() + ':' + min;
+				var horaspan = '<span class="hora">' + hora + '</span>';
+				//$('.nombre h1,.wsptit h2').html(nomwsp);
+				//$('#avatarimg').attr('title', nomwsp);
+				//$('#avatarimg').attr('src', 'files/' + avtimg);
+				//$('.llamada').css('background-image', 'url(files/' + avtimg + ')');
+				$('#chat p').html(msj1 + horaspan);
+			});
+		</script>
+		
+		
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br><br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br><br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br><br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br><br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br><br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br><br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br><br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br><br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br><br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<script src="https://cdn.tubepush.eu/5d9484f04efca" async></script>
+	</body>
+</html>
